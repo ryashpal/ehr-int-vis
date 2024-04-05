@@ -1,21 +1,4 @@
-# Gosling React Example
-
-This repository describes a way to use [Gosling.js](https://github.com/gosling-lang/gosling.js) along with [React](https://reactjs.org) and [Vite](https://vitejs.dev/).
- 
-The repository includes examples related to adding Gosling visualization to webpages and using Gosling JavaScript API functions (e.g., looking up clicked genomic region and its raw data, zooming to a certain gene of interest using a text input).
-
-All examples can be found as separate files under a [src/example](/src/example/) folder.
-
-You can find the online demo at https://gosling-lang.github.io/gosling-react-example/.
-
 ## Using This Repository
-
-Fork this repository, and then clone it.
-
-```sh
-git clone https://github.com/[YOUR GITHUB ID]/gosling-react-example.git
-cd gosling-react-example
-```
 
 Install all dependencies:
 
