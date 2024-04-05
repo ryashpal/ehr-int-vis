@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Graph from './Graph';
+import Graph from './Graph.jsx';
 
 function EHR() {
 	return (

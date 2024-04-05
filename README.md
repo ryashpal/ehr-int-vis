@@ -130,6 +130,3 @@ Add the following stylesheet to `public/index.html`:
 </head>
 ```
 
-## Resource
-
-- Gosling Editor ([demo](https://gosling.js.org/), [code](https://github.com/gosling-lang/gosling.js)) is also based on `<GoslingComponent/>`

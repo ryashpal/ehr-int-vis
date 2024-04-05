@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 
-import EHR from './EHR.jsx'
-import IntegratedExample from './IntegratedExample.jsx';
+import EHR from './components/EHR.jsx'
+import IntegratedExample from './components/IntegratedExample.jsx';
 
 import 'higlass/dist/hglib.css';
 
