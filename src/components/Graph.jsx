@@ -2,7 +2,8 @@
 
 import "../styles/Graph.css";
 
-import React from "react";
+import React, { useState } from "react";
+
 import {
   makeStyles,
   InputLabel,
@@ -23,18 +24,10 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-import data from '../services/Measurements.js'
-
 const useStyles = makeStyles(() => ({
   paper: {
     backgroundColor: "#fff",
     color: "#FFFFFF",
-    margin: "3%",
-    "&:hover": {
-      border: "3px dotted #77A6F7",
-      color: "#77A6F7",
-      background: "#fff",
-    },
   },
   formControl: {
     margin: "1%",
@@ -43,9 +36,10 @@ const useStyles = makeStyles(() => ({
 }));
 
 function Graph() {
+
   const classes = useStyles();
 
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     region: "",
   });
 
@@ -57,57 +51,108 @@ function Graph() {
   };
 
 
-  return (
-    <div className="Graph">
-      {/* <Grid container spacing={3}> */}
+  const [data, setData] = useState(null);
+
+  const result = [];
+
+  function loadData(url) {
+    if (!data) {
+      const xhr = new XMLHttpRequest();
+      console.log('Fetching URL: ', url);
+      xhr.open('GET', url);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          for (let entry of JSON.parse(xhr.responseText).entry) {
+            let obj = {
+              region: entry.resource.code.text,
+              date: entry.resource.effectiveDateTime,
+              vitals: entry.resource.valueQuantity.value,
+            };
+            result.push(obj);
+          }
+          let nextUrl = null
+          for (let link of JSON.parse(xhr.responseText).link) {
+            if (link.relation == 'next') {
+              nextUrl = link.url
+            }
+          }
+          if (nextUrl) {
+            loadData(nextUrl)
+          } else {
+            setData(result)
+          }
+        }
+      };
+      xhr.send();
+    }
+  }
+
+
+  // var demographicsData = data()
+  loadData('http://10.172.235.4:8080/fhir/Observation?subject=P2102099')
+
+  if (data) {
+
+    let menuOptions = new Set()
+    data.map(element => (
+      menuOptions.add(element.region)
+    ))
+
+    return (
+      <div className="Graph">
+        {/* <Grid container spacing={3}> */}
         {/* <Grid item xs={12} sm={6}> */}
-          <Paper className={classes.paper}>
-            <FormControl className={classes.formControl}>
-              <InputLabel>Select Vital</InputLabel>
-              <Select
-                value={state.region}
-                id="regionSelector"
-                name="region"
-                onChange={handleChange}
-              >
-                <MenuItem value="Temperature">Temperature</MenuItem>
-                <MenuItem value="Systolic BP">Systolic BP</MenuItem>
-                <MenuItem value="Diastolic BP">Diastolic BP</MenuItem>
-                <MenuItem value="Pulse rate">Pulse rate</MenuItem>
-                <MenuItem value="Respiration rate">Respiration rate</MenuItem>
-              </Select>
-            </FormControl>
-            <ResponsiveContainer height={250} width={500}>
-              <LineChart
-                width={500}
-                height={300}
-                data={data().filter((x) => x.region === state.region)}
-                margin={{
-                  top: 5,
-                  right: 30,
-                  left: 20,
-                  bottom: 5,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="date" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line
-                  type="monotone"
-                  dataKey="vitals"
-                  stroke="#003366"
-                  activeDot={{ r: 8 }}
-                />
-                {/* <Line type="monotone" dataKey="storage" stroke="#00887A" /> */}
-              </LineChart>
-            </ResponsiveContainer>
-          </Paper>
+        <Paper className={classes.paper}>
+          <FormControl className={classes.formControl}>
+            <InputLabel>Select Vital</InputLabel>
+            <Select
+              value={state.region}
+              id="regionSelector"
+              name="region"
+              onChange={handleChange}
+            >
+              {/* <MenuItem value={data[0].region}>{data[0].region}</MenuItem>
+              <MenuItem value={data[1].region}>{data[1].region}</MenuItem>
+              <MenuItem value="Diastolic BP">Diastolic BP</MenuItem>
+              <MenuItem value="Pulse rate">Pulse rate</MenuItem>
+              <MenuItem value="Respiration rate">Respiration rate</MenuItem> */}
+              {[...menuOptions].map(menuOption => (
+              <MenuItem value={menuOption}>{menuOption}</MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          {/* <ResponsiveContainer height={250} width={750}> */}
+          <LineChart
+            width={700}
+            height={250}
+            data={data.filter((x) => x.region === state.region)}
+            margin={{
+              top: 5,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="date" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Line
+              type="monotone"
+              dataKey="vitals"
+              stroke="#003366"
+              activeDot={{ r: 8 }}
+            />
+            {/* <Line type="monotone" dataKey="storage" stroke="#00887A" /> */}
+          </LineChart>
+          {/* </ResponsiveContainer> */}
+        </Paper>
         {/* </Grid> */}
-      {/* </Grid> */}
-    </div>
-  );
+        {/* </Grid> */}
+      </div>
+    );
+  }
 }
 
 export default Graph;
