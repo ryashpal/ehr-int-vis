@@ -6,30 +6,70 @@ import Slider from '@mui/material/Slider';
 
 import DataFrame from 'dataframe-js';
 
+import Plot from 'react-plotly.js';
+
 
 function AMRRiskScores() {
 
   const [value, setValue] = useState([0.92, 0.97]);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([{
+    type: 'bar',
+    x: [],
+    y: [],
+    orientation: 'h'
+  }]);
 
-  DataFrame.fromText('https://raw.githubusercontent.com/ryashpal/EHR-Int-Analysis/main/temp/AH19K081_genome_nlp_tokens_5.sampled.csv').then(df => {
-      console.log('Data Frame!!');
-      console.log(df);
+  function mergeData(oldX, oldY, groupedDf) {
+    console.log('groupedDf: ', groupedDf)
+    if (!oldX || !oldY || (oldX.length == 0) || (oldY.length == 0)) {
+      console.log('inside')
+      return [groupedDf.select('aggregation').toArray().flat(), groupedDf.select('Gene symbol').toArray().flat()]
     }
-  );
+    var oldDf = new DataFrame({'column1': oldY, 'column2': oldX}, ['Gene symbol', 'aggregation'])
+    console.log('oldDf: ', oldDf)
+    var unionDf = groupedDf.union(oldDf).groupBy('Gene symbol').aggregate(group => group.stat.sum('aggregation')).sortBy('aggregation', true)
+    console.log('unionDf: ', unionDf)
+    return [unionDf.select('aggregation').toArray().flat(), unionDf.select('Gene symbol').toArray().flat()]
+  }
 
   function refreshData() {
-  readData('http://10.172.235.4:8080/fhir/RiskAssessment?probability=ge' + value[0] + '&probability=le' + value[1]).then(response => {
-    const rows = [
-    ];
-    response.map(resourceBundle => {
-      resourceBundle.entry.map(entry => {
-        rows.push(createData(entry.resource.id, entry.resource.subject.reference, entry.resource.occurrenceDateTime, entry.resource.note[0].text, entry.resource.prediction[0].probabilityDecimal))
-      })
+    setData(oldData => {
+      var data = [{
+        type: 'bar',
+        x: [],
+        y: [],
+        orientation: 'h'
+      }];
+      return (data)
     })
-    setData(rows)
-  })
-}
+    DataFrame.fromCSV('https://raw.githubusercontent.com/ryashpal/ehr-int-vis/main/genomic_data/index_saur.csv').then(df => {
+      readData('http://10.172.235.4:8080/fhir/RiskAssessment?probability=ge' + value[0] + '&probability=le' + value[1]).then(response => {
+        let patientIds = new Set();
+        response.map(resourceBundle => {
+          resourceBundle.entry.map(entry => {
+            patientIds.add(entry.resource.subject.reference.substring(9,))
+          })
+        })
+        let mappingDf = df.filter(row => patientIds.has(row.get('PATIENT_ID')));
+        mappingDf.map((row) => {
+          DataFrame.fromTSV(row.get('amr_file')).then(df => {
+            let groupedDf = df.groupBy('Gene symbol').aggregate(group => group.count()).sortBy('aggregation', true)
+            setData(oldData => {
+              let [newX, newY] = mergeData(oldData[0].x, oldData[0].y, groupedDf)
+              var data = [{
+                type: 'bar',
+                x: newX,
+                y: newY,
+                orientation: 'h'
+              }];
+              return (data)
+            })
+          })
+        })
+      })
+    }
+    );
+  }
 
 
   const handleChange = (event, newValue) => {
@@ -44,7 +84,7 @@ function AMRRiskScores() {
 
   return (
     <>
-      <Box  m={4} p={4} sx={{ width: 1200 }}>
+      <Box m={4} p={4} sx={{ width: 1200 }}>
         <span>Risk Score Range</span>
         <Slider
           getAriaLabel={() => 'Risk Score Range'}
@@ -57,24 +97,9 @@ function AMRRiskScores() {
           marks={true}
         />
       </Box>
+      <Plot data={data}></Plot>
     </>
   );
 }
-
-function createData(
-  id,
-  patient_id,
-  date,
-  score,
-  desciption,
-) {
-  return { id, patient_id, date, score, desciption };
-}
-
-function loadData() {
-}
-
-
-loadData()
 
 export default AMRRiskScores;
