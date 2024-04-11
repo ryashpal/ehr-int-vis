@@ -1,10 +1,19 @@
 import React from 'react';
 import { GoslingComponent } from 'gosling.js';
 
+import EHR from './EHR.jsx'
+
 
 function IntegratedExample() {
 	return (
 		<>
+		<div className='flex flex-row h-full w-full'>
+			<div className='p-3'>
+				<h2 className="text-4xl font-extrabold dark:text-white flex items-center justify-center">EHR</h2>
+				<EHR/>
+			</div>
+			<div className=''>
+			<h2 className="text-4xl font-extrabold dark:text-white flex items-center justify-center">Genome</h2>
 			<h2 class="text-2xl font-bold tracking-tight sm:text-2xl flex items-center justify-center">Contig 1</h2>
 			<GoslingComponent
 				spec={
@@ -317,6 +326,8 @@ function IntegratedExample() {
 				}
 				experimental={{ reactive: true }}
 			/>
+			</div>
+		</div>
 			</>
 	);
 }

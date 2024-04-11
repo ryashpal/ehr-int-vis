@@ -1,26 +1,38 @@
 import * as React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 
-import EHR from './components/EHR.jsx'
 import IntegratedExample from './components/IntegratedExample.jsx';
+import PatientRiskScores from './components/PatientRiskScores.jsx'
+import AMRRiskScores from './components/AMRRiskScores.jsx'
 
 import 'higlass/dist/hglib.css';
+
+
+// The full list of explorations
+const explorations = {
+	'ARS': <AMRRiskScores/>,
+	'PRS': <PatientRiskScores/>,
+	'Integrated': <IntegratedExample/>,
+}
 
 
 function App() {
 	return (
 		<div className='flex flex-row h-full w-full'>
-			<div className='p-3'>
-				<h2 className="text-4xl font-extrabold dark:text-white flex items-center justify-center">EHR</h2>
-				<EHR/>
+			<div className='flex-none border-r-[1px]'>
+				<div className='font-bold font-lg m-3'>Explorations</div>
+				<ol className='list-decimal list-inside divide-y divide-solid'>
+					{Object.entries(explorations).map(entry => <li className='p-3' key={entry[0]}><Link className='hover:underline' to={`/${entry[0].replace(' ', '_')}`}>{entry[0]}</Link></li>)}
+				</ol>
 			</div>
 			<div className=''>
-			<h2 className="text-4xl font-extrabold dark:text-white flex items-center justify-center">Genome</h2>
-			<IntegratedExample/>
+				<Routes>
+					<Route path="/" element={explorations.Simple} />
+					{Object.entries(explorations).map(entry => <Route key={entry[0]} path={`/${entry[0].replace(' ', '_')}`} element={entry[1]}/>)}
+				</Routes>
 			</div>
 		</div>
 	);
 }
-
 
 export default App;
