@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import Graph from './Graph.jsx';
+import RiskScores from './RiskScores.jsx'
 
 // import data from '../services/Demographics.js';
 
@@ -31,10 +32,14 @@ function EHR() {
             <div className='flex flex-col h-full w-full'>
                 <br/>
                 <p className='text-2xl font-semibold'>{data.entry[0].resource.id}</p>
-                <p className='text-2xl font-extrabold'>{data.entry[0].resource.name}</p>
+                <p className='text-2xl font-bold'>{data.entry[0].resource.name}</p>
                 <p className='text-2xl font-normal'>{data.entry[0].resource.gender}</p>
+                <br/>
+                <p className='font-black'>Vitals</p>
                 <Graph/>
+                <p className='font-black'>Lab Values</p>
                 <Graph/>
+                <RiskScores/>
             </div>
         )
     }

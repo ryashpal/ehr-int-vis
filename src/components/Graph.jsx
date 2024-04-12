@@ -66,7 +66,7 @@ function Graph() {
             let obj = {
               region: entry.resource.code.text,
               date: entry.resource.effectiveDateTime,
-              vitals: entry.resource.valueQuantity.value,
+              value: entry.resource.valueQuantity.value,
             };
             result.push(obj);
           }
@@ -89,7 +89,7 @@ function Graph() {
 
 
   // var demographicsData = data()
-  loadData('http://10.172.235.4:8080/fhir/Observation?subject=P2102099')
+  loadData('http://10.172.235.4:8080/fhir/Observation?subject=P2102099&_sort=date')
 
   if (data) {
 
@@ -140,7 +140,7 @@ function Graph() {
             <Legend />
             <Line
               type="monotone"
-              dataKey="vitals"
+              dataKey="value"
               stroke="#003366"
               activeDot={{ r: 8 }}
             />
