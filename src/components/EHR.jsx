@@ -14,6 +14,11 @@ function EHR() {
         if(!data){
             const xhr = new XMLHttpRequest();
             xhr.open('GET', 'http://10.172.235.4:8080/fhir/Patient?_id=P2102099');
+            // xhr.setRequestHeader("Content-Type", "application/fhir+json");
+            // xhr.setRequestHeader("authentication", "mjRmoNGW6klxaClkKhEkqi7HVYwx6NTH");
+            // xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+            // xhr.setRequestHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+            // xhr.setRequestHeader("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Authorization, X-Request-With")
             xhr.onload = function() {
                 if (xhr.status === 200) {
                     setData(JSON.parse(xhr.responseText));
