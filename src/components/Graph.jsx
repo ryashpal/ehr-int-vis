@@ -60,6 +60,8 @@ function Graph() {
       const xhr = new XMLHttpRequest();
       console.log('Fetching URL: ', url);
       xhr.open('GET', url);
+      xhr.setRequestHeader("authentication", "mjRmoNGW6klxaClkKhEkqi7HVYwx6NTH");
+
       xhr.onload = function () {
         if (xhr.status === 200) {
           for (let entry of JSON.parse(xhr.responseText).entry) {
@@ -89,7 +91,7 @@ function Graph() {
 
 
   // var demographicsData = data()
-  loadData('http://10.172.235.4:8080/fhir/Observation?subject=P2102099&_sort=date')
+  loadData('http://10.172.235.4:8080/fhir/Observation?subject=P2115118&_sort=date&_offset=0&_count=20')
 
   if (data) {
 

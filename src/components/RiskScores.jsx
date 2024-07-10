@@ -10,11 +10,11 @@ import readData from '../utils/FHIRUtils.js'
 function RiskScore() {
 
     function refreshData() {
-        readData('http://10.172.235.4:8080/fhir/RiskAssessment?subject=P2102099').then(response => {
+        readData('http://10.172.235.4:8080/fhir/RiskAssessment?subject=P2115118').then(response => {
             response.map(resourceBundle => {
                 if (resourceBundle.entry) {
                     resourceBundle.entry.map(entry => {
-                        let targetTime = parseInt(JSON.parse(entry.resource.note[0].text.replaceAll("'", '"'))['Target Time'].split(' ')[0])
+                        let targetTime = parseInt(JSON.parse(entry.resource.note[0].text.replaceAll("'", '"'))['targetTime'].split(' ')[0])
                         let newData = [
                             {
                                 name: '7 Day Mortality',
@@ -43,7 +43,7 @@ function RiskScore() {
                                 let updatedRow0 = oldData[0].y
                                 let updatedRow1 = oldData[1].y
                                 let updatedRow2 = oldData[2].y
-                                updatedRow0[parseInt(JSON.parse(entry.resource.note[0].text.replaceAll("'", '"'))['Window After'].split(' ')[0])] = entry.resource.prediction[0].probabilityDecimal
+                                updatedRow0[parseInt(JSON.parse(entry.resource.note[0].text.replaceAll("'", '"'))['windowAfter'].split(' ')[0])] = entry.resource.prediction[0].probabilityDecimal
                                 newData[0].y = updatedRow0
                                 newData[1].y = updatedRow1
                                 newData[2].y = updatedRow2
@@ -55,7 +55,7 @@ function RiskScore() {
                                 let updatedRow0 = oldData[0].y
                                 let updatedRow1 = oldData[1].y
                                 let updatedRow2 = oldData[2].y
-                                updatedRow1[parseInt(JSON.parse(entry.resource.note[0].text.replaceAll("'", '"'))['Window After'].split(' ')[0])] = entry.resource.prediction[0].probabilityDecimal
+                                updatedRow1[parseInt(JSON.parse(entry.resource.note[0].text.replaceAll("'", '"'))['windowAfter'].split(' ')[0])] = entry.resource.prediction[0].probabilityDecimal
                                 newData[0].y = updatedRow0
                                 newData[1].y = updatedRow1
                                 newData[2].y = updatedRow2
@@ -67,7 +67,7 @@ function RiskScore() {
                                 let updatedRow0 = oldData[0].y
                                 let updatedRow1 = oldData[1].y
                                 let updatedRow2 = oldData[2].y
-                                updatedRow2[parseInt(JSON.parse(entry.resource.note[0].text.replaceAll("'", '"'))['Window After'].split(' ')[0])] = entry.resource.prediction[0].probabilityDecimal
+                                updatedRow2[parseInt(JSON.parse(entry.resource.note[0].text.replaceAll("'", '"'))['windowAfter'].split(' ')[0])] = entry.resource.prediction[0].probabilityDecimal
                                 newData[0].y = updatedRow0
                                 newData[1].y = updatedRow1
                                 newData[2].y = updatedRow2

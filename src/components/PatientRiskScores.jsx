@@ -112,7 +112,6 @@ function createData(
 function loadData() {
 }
 
-
 loadData()
 
 export default PatientRiskScores;
