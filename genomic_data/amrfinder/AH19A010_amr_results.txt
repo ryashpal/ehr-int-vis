@@ -1,0 +1,31 @@
+Protein identifier	Contig id	Start	Stop	Strand	Gene symbol	Sequence name	Scope	Element type	Element subtype	Class	Subclass	Method	Target length	Reference sequence length	% Coverage of reference sequence	% Identity to reference sequence	Alignment length	Accession of closest sequence	Name of closest sequence	HMM id	HMM description
+NA	11	38759	39691	+	lukE	bi-component leukocidin LukED subunit E	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	311	311	100.00	99.68	311	RCV70079.1	bi-component leukocidin LukED subunit E	NA	NA
+NA	11	39696	40676	+	lukD	bi-component leukocidin LukED subunit D	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	327	327	100.00	94.50	327	CAA73668.1	bi-component leukocidin LukED subunit D	NA	NA
+NA	11	52328	53032	+	splA	serine protease SplA	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	235	235	100.00	99.57	235	ABD31004.1	serine protease SplA	NA	NA
+NA	11	53160	53879	+	splB	serine protease SplB	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	240	240	100.00	99.58	240	ABD31003.1	serine protease SplB	NA	NA
+NA	14	2344	2958	+	cadD	cadmium resistance transporter CadD	plus	STRESS	METAL	CADMIUM	CADMIUM	BLASTX	205	205	100.00	99.51	205	BAB43874.1	cadmium resistance transporter CadD	NA	NA
+NA	14	7976	8353	-	blaI	penicillinase repressor BlaI	core	AMR	AMR	BETA-LACTAM	BETA-LACTAM	BLASTX	126	126	100.00	99.21	126	WP_001284656.1	penicillinase repressor BlaI	NA	NA
+NA	14	8346	10100	-	blaR1	beta-lactam sensor/signal transducer BlaR1	core	AMR	AMR	BETA-LACTAM	BETA-LACTAM	BLASTX	585	585	100.00	95.56	585	WP_001096386.1	beta-lactam sensor/signal transducer BlaR1	NA	NA
+NA	14	10207	11049	+	blaZ	penicillin-hydrolyzing class A beta-lactamase BlaZ	core	AMR	AMR	BETA-LACTAM	BETA-LACTAM	EXACTX	281	281	100.00	100.00	281	WP_000733289.1	penicillin-hydrolyzing class A beta-lactamase BlaZ	NA	NA
+NA	14	12139	12702	-	qacR	multidrug-binding transcriptional regulator QacR	plus	STRESS	BIOCIDE	QUATERNARY AMMONIUM	QUATERNARY AMMONIUM	EXACTX	188	188	100.00	100.00	188	ADK23698.1	multidrug-binding transcriptional regulator QacR	NA	NA
+NA	14	12881	14422	+	qacA	quaternary ammonium compound efflux MFS transporter QacA	core	STRESS	BIOCIDE	QUATERNARY AMMONIUM	QUATERNARY AMMONIUM	EXACTX	514	514	100.00	100.00	514	WP_000622776.1	quaternary ammonium compound efflux MFS transporter QacA	NA	NA
+NA	14	15277	18348	+	mupA	mupirocin-resistant isoleucine--tRNA ligase MupA	core	AMR	AMR	MUPIROCIN	MUPIROCIN	EXACTX	1024	1024	100.00	100.00	1024	WP_000163435.1	mupirocin-resistant isoleucine--tRNA ligase MupA	NA	NA
+NA	2	128746	129720	-	lukF-PV	Panton-Valentine bi-component leukocidin subunit F	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	325	325	100.00	98.77	325	BAA24008.1	Panton-Valentine bi-component leukocidin subunit F	NA	NA
+NA	2	129725	130660	-	lukS-PV	Panton-Valentine bi-component leukocidin subunit S	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	312	312	100.00	99.68	312	AGW33874.1	Panton-Valentine bi-component leukocidin subunit S	NA	NA
+NA	3	193040	194389	-	tet(38)	tetracycline efflux MFS transporter Tet(38)	core	AMR	AMR	TETRACYCLINE	TETRACYCLINE	EXACTX	450	450	100.00	100.00	450	WP_001100294.1	tetracycline efflux MFS transporter Tet(38)	NA	NA
+NA	3	261222	261944	-	seh	staphylococcal enterotoxin type H	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	241	241	100.00	100.00	241	AAA19777.1	staphylococcal enterotoxin type H	NA	NA
+NA	3	268720	269355	-	fusC	fusidic acid resistance EF-G-binding protein FusC	core	AMR	AMR	FUSIDIC ACID	FUSIDIC ACID	ALLELEX	212	212	100.00	100.00	212	WP_001033157.1	fusidic acid resistance EF-G-binding protein FusC	NA	NA
+NA	3	340710	342611	+	cna	collagen adhesin Cna	plus	VIRULENCE	VIRULENCE	NA	NA	PARTIAL_CONTIG_ENDX	634	1183	53.59	99.53	634	BAB96477.1	collagen adhesin Cna	NA	NA
+NA	4	74157	75131	-	hlgB	bi-component gamma-hemolysin HlgAB/HlgCB subunit B	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	325	325	100.00	97.54	325	CAA57278.1	bi-component gamma-hemolysin HlgAB/HlgCB subunit B	NA	NA
+NA	4	75136	76080	-	hlgC	bi-component gamma-hemolysin HlgCB subunit C	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	315	315	100.00	97.46	315	CAA57277.1	bi-component gamma-hemolysin HlgCB subunit C	NA	NA
+NA	4	76651	77577	-	hlgA	bi-component gamma-hemolysin HlgAB subunit A	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	309	309	100.00	100.00	309	AUU54669.1	bi-component gamma-hemolysin HlgAB subunit A	NA	NA
+NA	4	310100	311539	+	lmrS	multidrug efflux MFS transporter LmrS	plus	STRESS	BIOCIDE	MACROLIDE/PHENICOL	CHLORAMPHENICOL/ERYTHROMYCIN	BLASTX	480	480	100.00	99.38	480	AAW38464.1	multidrug efflux MFS transporter LmrS	NA	NA
+NA	5	22216	23265	-	icaC	polysaccharide intercellular adhesin biosynthesis/export protein IcaC	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	350	350	100.00	100.00	350	AUU58561.1	polysaccharide intercellular adhesin biosynthesis/export protein IcaC	NA	NA
+NA	5	67834	69360	+	aur	zinc metalloproteinase aureolysin	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	509	509	100.00	99.41	509	EHO93748.1	zinc metalloproteinase aureolysin	NA	NA
+NA	7	29106	29183	+	hld	delta-hemolysin	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	26	26	100.00	96.15	26	AGU62139.1	delta-hemolysin	NA	NA
+NA	7	49126	49848	-	sek	staphylococcal enterotoxin type K	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	241	242	99.59	97.10	241	AAW36439.1	staphylococcal enterotoxin type K	NA	NA
+NA	7	49875	50600	-	seq	staphylococcal enterotoxin type Q	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	242	242	100.00	98.76	242	EYN56163.1	staphylococcal enterotoxin type Q	NA	NA
+NA	7	84515	85285	+	sea	staphylococcal enterotoxin type A	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	257	257	100.00	100.00	257	BAV60816.1	staphylococcal enterotoxin type A	NA	NA
+NA	7	86997	87485	+	sak	staphylokinase	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	163	163	100.00	100.00	163	CAA24957.1	staphylokinase	NA	NA
+NA	7	88986	89333	+	scn	complement inhibitor SCIN-A	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	116	116	100.00	100.00	116	ADL23798.1	complement inhibitor SCIN-A	NA	NA
+NA	8	78418	79770	-	mepA	multidrug efflux MATE transporter MepA	plus	AMR	AMR	EFFLUX	EFFLUX	BLASTX	451	451	100.00	99.33	451	BAB41547.1	multidrug efflux MATE transporter MepA	NA	NA

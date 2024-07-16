@@ -1,0 +1,26 @@
+Protein identifier	Contig id	Start	Stop	Strand	Gene symbol	Sequence name	Scope	Element type	Element subtype	Class	Subclass	Method	Target length	Reference sequence length	% Coverage of reference sequence	% Identity to reference sequence	Alignment length	Accession of closest sequence	Name of closest sequence	HMM id	HMM description
+NA	1	304831	305766	+	lukS-PV	Panton-Valentine bi-component leukocidin subunit S	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	312	312	100.00	100.00	312	AGW33874.1	Panton-Valentine bi-component leukocidin subunit S	NA	NA
+NA	1	305771	306745	+	lukF-PV	Panton-Valentine bi-component leukocidin subunit F	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	325	325	100.00	98.77	325	BAA24008.1	Panton-Valentine bi-component leukocidin subunit F	NA	NA
+NA	11	44847	45194	-	scn	complement inhibitor SCIN-A	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	116	116	100.00	100.00	116	ADL23798.1	complement inhibitor SCIN-A	NA	NA
+NA	11	47411	47899	-	sak	staphylokinase	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	163	163	100.00	98.77	163	CAA24957.1	staphylokinase	NA	NA
+NA	11	78013	78090	-	hld	delta-hemolysin	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	26	26	100.00	100.00	26	AGU62139.1	delta-hemolysin	NA	NA
+NA	2	1630	3069	-	lmrS	multidrug efflux MFS transporter LmrS	plus	STRESS	BIOCIDE	MACROLIDE/PHENICOL	CHLORAMPHENICOL/ERYTHROMYCIN	BLASTX	480	480	100.00	96.67	480	AAW38464.1	multidrug efflux MFS transporter LmrS	NA	NA
+NA	2	149642	150058	+	fosB	FosB1/FosB3 family fosfomycin resistance bacillithiol transferase	core	AMR	AMR	FOSFOMYCIN	FOSFOMYCIN	BLASTX	139	139	100.00	99.28	139	WP_000920239.1	FosB1/FosB3 family fosfomycin resistance bacillithiol transferase	NA	NA
+NA	2	242426	243352	+	hlgA	bi-component gamma-hemolysin HlgAB subunit A	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	309	309	100.00	99.68	309	AUU54669.1	bi-component gamma-hemolysin HlgAB subunit A	NA	NA
+NA	2	243905	244849	+	hlgC	bi-component gamma-hemolysin HlgCB subunit C	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	315	315	100.00	99.37	315	CAA57277.1	bi-component gamma-hemolysin HlgCB subunit C	NA	NA
+NA	2	244854	245828	+	hlgB	bi-component gamma-hemolysin HlgAB/HlgCB subunit B	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	325	325	100.00	100.00	325	CAA57278.1	bi-component gamma-hemolysin HlgAB/HlgCB subunit B	NA	NA
+NA	23	8130	8744	-	cadD	cadmium resistance transporter CadD	plus	STRESS	METAL	CADMIUM	CADMIUM	BLASTX	205	205	100.00	99.51	205	BAB43874.1	cadmium resistance transporter CadD	NA	NA
+NA	26	3168	3545	-	blaI	penicillinase repressor BlaI	core	AMR	AMR	BETA-LACTAM	BETA-LACTAM	EXACTX	126	126	100.00	100.00	126	WP_001284656.1	penicillinase repressor BlaI	NA	NA
+NA	26	3538	5292	-	blaR1	beta-lactam sensor/signal transducer BlaR1	core	AMR	AMR	BETA-LACTAM	BETA-LACTAM	EXACTX	585	585	100.00	100.00	585	WP_001096376.1	beta-lactam sensor/signal transducer BlaR1	NA	NA
+NA	26	5399	6241	+	blaPC1	BlaZ family penicillin-hydrolyzing class A beta-lactamase PC1	core	AMR	AMR	BETA-LACTAM	BETA-LACTAM	ALLELEX	281	281	100.00	100.00	281	WP_000733283.1	BlaZ family penicillin-hydrolyzing class A beta-lactamase PC1	NA	NA
+NA	3	149164	150690	-	aur	zinc metalloproteinase aureolysin	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	509	509	100.00	93.91	509	EHO93748.1	zinc metalloproteinase aureolysin	NA	NA
+NA	3	194252	195301	+	icaC	polysaccharide intercellular adhesin biosynthesis/export protein IcaC	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	350	350	100.00	99.14	350	AUU58561.1	polysaccharide intercellular adhesin biosynthesis/export protein IcaC	NA	NA
+NA	4	57604	58953	-	tet(38)	tetracycline efflux MFS transporter Tet(38)	core	AMR	AMR	TETRACYCLINE	TETRACYCLINE	EXACTX	450	450	100.00	100.00	450	WP_001100293.1	tetracycline efflux MFS transporter Tet(38)	NA	NA
+NA	4	131576	132550	-	mecR1	beta-lactam sensor/signal transducer MecR1	core	AMR	AMR	BETA-LACTAM	METHICILLIN	PARTIALX	325	585	55.56	100.00	325	WP_000952923.1	beta-lactam sensor/signal transducer MecR1	NA	NA
+NA	4	132650	134653	+	mecA	PBP2a family beta-lactam-resistant peptidoglycan transpeptidase MecA	core	AMR	AMR	BETA-LACTAM	METHICILLIN	EXACTX	668	668	100.00	100.00	668	WP_000721310.1	PBP2a family beta-lactam-resistant peptidoglycan transpeptidase MecA	NA	NA
+NA	6	128382	129734	+	mepA	multidrug efflux MATE transporter MepA	plus	AMR	AMR	EFFLUX	EFFLUX	BLASTX	451	451	100.00	98.89	451	BAB41547.1	multidrug efflux MATE transporter MepA	NA	NA
+NA	9	36737	37453	+	sem	staphylococcal enterotoxin type M	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	239	239	100.00	96.65	239	SGR88215.1	staphylococcal enterotoxin type M	NA	NA
+NA	9	37491	38216	+	sei	staphylococcal enterotoxin type I	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	242	243	99.59	92.98	242	SGR88193.1	staphylococcal enterotoxin type I	NA	NA
+NA	9	38373	39155	+	seu	staphylococcal enterotoxin type U	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	261	261	100.00	96.17	261	SGR88168.1	staphylococcal enterotoxin type U	NA	NA
+NA	9	39197	40000	+	sen	staphylococcal enterotoxin type N	plus	VIRULENCE	VIRULENCE	NA	NA	INTERNAL_STOP	268	272	98.53	94.40	268	SAO78304.1	staphylococcal enterotoxin type N	NA	NA
+NA	9	48936	49649	+	splE	serine protease SplE	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	238	238	100.00	96.22	238	ABD30999.1	serine protease SplE	NA	NA
