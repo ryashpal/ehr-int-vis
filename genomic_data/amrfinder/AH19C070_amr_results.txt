@@ -1,0 +1,23 @@
+Protein identifier	Contig id	Start	Stop	Strand	Gene symbol	Sequence name	Scope	Element type	Element subtype	Class	Subclass	Method	Target length	Reference sequence length	% Coverage of reference sequence	% Identity to reference sequence	Alignment length	Accession of closest sequence	Name of closest sequence	HMM id	HMM description
+NA	2	85808	86416	-	selX	staphylococcal enterotoxin-like toxin X	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	203	203	100.00	96.06	203	AEI60187.1	staphylococcal enterotoxin-like toxin X	NA	NA
+NA	2	134592	135944	-	mepA	multidrug efflux MATE transporter MepA	plus	AMR	AMR	EFFLUX	EFFLUX	BLASTX	451	451	100.00	98.67	451	BAB41547.1	multidrug efflux MATE transporter MepA	NA	NA
+NA	3	37037	37753	+	sem	staphylococcal enterotoxin type M	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	239	239	100.00	95.40	239	SGR88215.1	staphylococcal enterotoxin type M	NA	NA
+NA	3	37791	38516	+	sei	staphylococcal enterotoxin type I	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	242	243	99.59	93.80	242	SGR88193.1	staphylococcal enterotoxin type I	NA	NA
+NA	3	38673	39455	+	seu	staphylococcal enterotoxin type U	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	261	261	100.00	99.62	261	SGR88168.1	staphylococcal enterotoxin type U	NA	NA
+NA	3	39497	40300	+	sen	staphylococcal enterotoxin type N	plus	VIRULENCE	VIRULENCE	NA	NA	INTERNAL_STOP	268	272	98.53	95.90	268	SAO78304.1	staphylococcal enterotoxin type N	NA	NA
+NA	3	210140	210919	+	ant(9)-Ia	aminoglycoside nucleotidyltransferase ANT(9)-Ia	core	AMR	AMR	AMINOGLYCOSIDE	SPECTINOMYCIN	EXACTX	260	260	100.00	100.00	260	WP_000067268.1	aminoglycoside nucleotidyltransferase ANT(9)-Ia	NA	NA
+NA	3	211051	211779	-	erm(A)	23S rRNA (adenine(2058)-N(6))-methyltransferase Erm(A)	core	AMR	AMR	MACROLIDE	MACROLIDE	EXACTX	243	243	100.00	100.00	243	WP_001072201.1	23S rRNA (adenine(2058)-N(6))-methyltransferase Erm(A)	NA	NA
+NA	4	132	1481	-	tet(38)	tetracycline efflux MFS transporter Tet(38)	core	AMR	AMR	TETRACYCLINE	TETRACYCLINE	BLASTX	450	450	100.00	99.78	450	WP_001100293.1	tetracycline efflux MFS transporter Tet(38)	NA	NA
+NA	4	64104	64826	-	seh	staphylococcal enterotoxin type H	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	241	241	100.00	99.17	241	AAA19777.1	staphylococcal enterotoxin type H	NA	NA
+NA	4	150323	151372	-	icaC	polysaccharide intercellular adhesin biosynthesis/export protein IcaC	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	350	350	100.00	99.43	350	AUU58561.1	polysaccharide intercellular adhesin biosynthesis/export protein IcaC	NA	NA
+NA	4	195268	196794	+	aur	zinc metalloproteinase aureolysin	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	509	509	100.00	99.61	509	EHO93748.1	zinc metalloproteinase aureolysin	NA	NA
+NA	5	49837	50499	+	sey	staphylococcal enterotoxin type Y	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	221	221	100.00	98.64	221	BAS21358.1	staphylococcal enterotoxin type Y	NA	NA
+NA	5	178893	179867	-	hlgB	bi-component gamma-hemolysin HlgAB/HlgCB subunit B	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	325	325	100.00	97.85	325	CAA57278.1	bi-component gamma-hemolysin HlgAB/HlgCB subunit B	NA	NA
+NA	5	179872	180816	-	hlgC	bi-component gamma-hemolysin HlgCB subunit C	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	315	315	100.00	97.14	315	CAA57277.1	bi-component gamma-hemolysin HlgCB subunit C	NA	NA
+NA	5	181387	182313	-	hlgA	bi-component gamma-hemolysin HlgAB subunit A	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	309	309	100.00	100.00	309	AUU54669.1	bi-component gamma-hemolysin HlgAB subunit A	NA	NA
+NA	6	1611	3050	-	lmrS	multidrug efflux MFS transporter LmrS	plus	STRESS	BIOCIDE	MACROLIDE/PHENICOL	CHLORAMPHENICOL/ERYTHROMYCIN	BLASTX	480	480	100.00	97.71	480	AAW38464.1	multidrug efflux MFS transporter LmrS	NA	NA
+NA	7	190	678	+	sak	staphylokinase	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	163	163	100.00	99.39	163	CAA24957.1	staphylokinase	NA	NA
+NA	7	2890	3237	+	scn	complement inhibitor SCIN-A	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	116	116	100.00	99.14	116	ADL23798.1	complement inhibitor SCIN-A	NA	NA
+NA	7	22139	22981	-	blaZ	penicillin-hydrolyzing class A beta-lactamase BlaZ	core	AMR	AMR	BETA-LACTAM	BETA-LACTAM	BLASTX	281	281	100.00	94.66	281	WP_000733281.1	penicillin-hydrolyzing class A beta-lactamase BlaZ	NA	NA
+NA	7	24835	25212	+	blaI	penicillinase repressor BlaI	core	AMR	AMR	BETA-LACTAM	BETA-LACTAM	BLASTX	126	126	100.00	96.03	126	WP_001284656.1	penicillinase repressor BlaI	NA	NA
+NA	9	31633	31710	-	hld	delta-hemolysin	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	26	26	100.00	100.00	26	AGU62139.1	delta-hemolysin	NA	NA

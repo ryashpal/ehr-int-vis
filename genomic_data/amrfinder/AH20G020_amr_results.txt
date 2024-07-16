@@ -1,0 +1,21 @@
+Protein identifier	Contig id	Start	Stop	Strand	Gene symbol	Sequence name	Scope	Element type	Element subtype	Class	Subclass	Method	Target length	Reference sequence length	% Coverage of reference sequence	% Identity to reference sequence	Alignment length	Accession of closest sequence	Name of closest sequence	HMM id	HMM description
+NA	15	2346	2960	+	cadD	cadmium resistance transporter CadD	plus	STRESS	METAL	CADMIUM	CADMIUM	BLASTX	205	205	100.00	99.51	205	BAB43874.1	cadmium resistance transporter CadD	NA	NA
+NA	15	7979	8356	-	blaI	penicillinase repressor BlaI	core	AMR	AMR	BETA-LACTAM	BETA-LACTAM	BLASTX	126	126	100.00	99.21	126	WP_001284656.1	penicillinase repressor BlaI	NA	NA
+NA	15	8349	10103	-	blaR1	beta-lactam sensor/signal transducer BlaR1	core	AMR	AMR	BETA-LACTAM	BETA-LACTAM	BLASTX	585	585	100.00	95.56	585	WP_001096386.1	beta-lactam sensor/signal transducer BlaR1	NA	NA
+NA	15	10210	11052	+	blaZ	penicillin-hydrolyzing class A beta-lactamase BlaZ	core	AMR	AMR	BETA-LACTAM	BETA-LACTAM	EXACTX	281	281	100.00	100.00	281	WP_000733289.1	penicillin-hydrolyzing class A beta-lactamase BlaZ	NA	NA
+NA	2	81604	82953	+	tet(38)	tetracycline efflux MFS transporter Tet(38)	core	AMR	AMR	TETRACYCLINE	TETRACYCLINE	EXACTX	450	450	100.00	100.00	450	WP_001100293.1	tetracycline efflux MFS transporter Tet(38)	NA	NA
+NA	2	358317	359669	+	mepA	multidrug efflux MATE transporter MepA	plus	AMR	AMR	EFFLUX	EFFLUX	BLASTX	451	451	100.00	99.56	451	BAB41547.1	multidrug efflux MATE transporter MepA	NA	NA
+NA	3	1565	3004	-	lmrS	multidrug efflux MFS transporter LmrS	plus	STRESS	BIOCIDE	MACROLIDE/PHENICOL	CHLORAMPHENICOL/ERYTHROMYCIN	BLASTX	480	480	100.00	99.38	480	AAW38464.1	multidrug efflux MFS transporter LmrS	NA	NA
+NA	3	148279	148695	+	fosB	FosB1/FosB3 family fosfomycin resistance bacillithiol transferase	core	AMR	AMR	FOSFOMYCIN	FOSFOMYCIN	BLASTX	139	139	100.00	98.56	139	WP_000920239.1	FosB1/FosB3 family fosfomycin resistance bacillithiol transferase	NA	NA
+NA	3	237129	238055	+	hlgA	bi-component gamma-hemolysin HlgAB subunit A	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	309	309	100.00	100.00	309	AUU54669.1	bi-component gamma-hemolysin HlgAB subunit A	NA	NA
+NA	3	238625	239569	+	hlgC	bi-component gamma-hemolysin HlgCB subunit C	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	315	315	100.00	97.46	315	CAA57277.1	bi-component gamma-hemolysin HlgCB subunit C	NA	NA
+NA	3	239574	240548	+	hlgB	bi-component gamma-hemolysin HlgAB/HlgCB subunit B	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	325	325	100.00	97.54	325	CAA57278.1	bi-component gamma-hemolysin HlgAB/HlgCB subunit B	NA	NA
+NA	5	51128	52177	-	icaC	polysaccharide intercellular adhesin biosynthesis/export protein IcaC	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	350	350	100.00	100.00	350	AUU58561.1	polysaccharide intercellular adhesin biosynthesis/export protein IcaC	NA	NA
+NA	5	107052	108578	+	aur	zinc metalloproteinase aureolysin	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	509	509	100.00	99.61	509	EHO93748.1	zinc metalloproteinase aureolysin	NA	NA
+NA	7	29997	30074	+	hld	delta-hemolysin	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	26	26	100.00	100.00	26	AGU62139.1	delta-hemolysin	NA	NA
+NA	7	47162	47509	+	scn	complement inhibitor SCIN-A	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	116	116	100.00	99.14	116	ADL23798.1	complement inhibitor SCIN-A	NA	NA
+NA	9	39291	40223	+	lukE	bi-component leukocidin LukED subunit E	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	311	311	100.00	99.68	311	RCV70079.1	bi-component leukocidin LukED subunit E	NA	NA
+NA	9	40228	41208	+	lukD	bi-component leukocidin LukED subunit D	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	327	327	100.00	94.19	327	CAA73668.1	bi-component leukocidin LukED subunit D	NA	NA
+NA	9	45328	46032	+	splA	serine protease SplA	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	235	235	100.00	95.74	235	ABD31004.1	serine protease SplA	NA	NA
+NA	9	46160	46879	+	splB	serine protease SplB	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	240	240	100.00	99.58	240	ABD31003.1	serine protease SplB	NA	NA
+NA	9	48657	49370	+	splE	serine protease SplE	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	238	238	100.00	99.58	238	ABD30999.1	serine protease SplE	NA	NA

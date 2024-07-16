@@ -28,7 +28,6 @@
     "react-date-range": "^2.0.0-alpha.4",
     "react-dom": "^18.2.0",
     "react-plotly.js": "^2.6.0",
-    "react-range-slider-input": "^3.0.7",
     "react-router-dom": "^6.3.0",
     "react-vega": "^7.6.0",
     "recharts": "^2.12.4",

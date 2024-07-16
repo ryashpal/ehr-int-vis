@@ -1,0 +1,18 @@
+Protein identifier	Contig id	Start	Stop	Strand	Gene symbol	Sequence name	Scope	Element type	Element subtype	Class	Subclass	Method	Target length	Reference sequence length	% Coverage of reference sequence	% Identity to reference sequence	Alignment length	Accession of closest sequence	Name of closest sequence	HMM id	HMM description
+NA	1	1074157	1074906	-	sel26	staphylococcal enterotoxin type 26	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	250	250	100.00	95.60	250	KAG18833.1	staphylococcal enterotoxin type 26	NA	NA
+NA	2	85770	86378	-	selX	staphylococcal enterotoxin-like toxin X	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	203	203	100.00	100.00	203	AEI60187.1	staphylococcal enterotoxin-like toxin X	NA	NA
+NA	2	119681	121033	-	mepA	multidrug efflux MATE transporter MepA	plus	AMR	AMR	EFFLUX	EFFLUX	BLASTX	451	451	100.00	99.78	451	AAU95768.1	multidrug efflux MATE transporter MepA	NA	NA
+NA	3	156917	158443	-	aur	zinc metalloproteinase aureolysin	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	509	509	100.00	99.41	509	EHO93748.1	zinc metalloproteinase aureolysin	NA	NA
+NA	3	201334	202383	+	icaC	polysaccharide intercellular adhesin biosynthesis/export protein IcaC	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	350	350	100.00	100.00	350	AUU58561.1	polysaccharide intercellular adhesin biosynthesis/export protein IcaC	NA	NA
+NA	3	338329	339678	+	tet(38)	tetracycline efflux MFS transporter Tet(38)	core	AMR	AMR	TETRACYCLINE	TETRACYCLINE	BLASTX	450	450	100.00	99.78	450	WP_001100300.1	tetracycline efflux MFS transporter Tet(38)	NA	NA
+NA	4	82904	83251	-	scn	complement inhibitor SCIN-A	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	116	116	100.00	99.14	116	ADL23798.1	complement inhibitor SCIN-A	NA	NA
+NA	4	84751	85239	-	sak	staphylokinase	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	163	163	100.00	100.00	163	CAA24957.1	staphylokinase	NA	NA
+NA	4	141340	141417	-	hld	delta-hemolysin	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	26	26	100.00	100.00	26	AGU62139.1	delta-hemolysin	NA	NA
+NA	5	63776	64702	+	hlgA	bi-component gamma-hemolysin HlgAB subunit A	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	309	309	100.00	100.00	309	AUU54669.1	bi-component gamma-hemolysin HlgAB subunit A	NA	NA
+NA	5	65272	66216	+	hlgC	bi-component gamma-hemolysin HlgCB subunit C	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	315	315	100.00	96.83	315	CAA57277.1	bi-component gamma-hemolysin HlgCB subunit C	NA	NA
+NA	5	66221	67195	+	hlgB	bi-component gamma-hemolysin HlgAB/HlgCB subunit B	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	325	325	100.00	97.54	325	CAA57278.1	bi-component gamma-hemolysin HlgAB/HlgCB subunit B	NA	NA
+NA	7	36317	37249	+	lukE	bi-component leukocidin LukED subunit E	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	311	311	100.00	99.68	311	RCV70079.1	bi-component leukocidin LukED subunit E	NA	NA
+NA	7	37254	38234	+	lukD	bi-component leukocidin LukED subunit D	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	327	327	100.00	94.19	327	CAA73668.1	bi-component leukocidin LukED subunit D	NA	NA
+NA	7	42354	43058	+	splA	serine protease SplA	plus	VIRULENCE	VIRULENCE	NA	NA	BLASTX	235	235	100.00	96.60	235	ABD31004.1	serine protease SplA	NA	NA
+NA	7	43186	43905	+	splB	serine protease SplB	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	240	240	100.00	100.00	240	ABD31003.1	serine protease SplB	NA	NA
+NA	8	71410	72849	+	lmrS	multidrug efflux MFS transporter LmrS	plus	STRESS	BIOCIDE	MACROLIDE/PHENICOL	CHLORAMPHENICOL/ERYTHROMYCIN	EXACTX	480	480	100.00	100.00	480	AAW38464.1	multidrug efflux MFS transporter LmrS	NA	NA

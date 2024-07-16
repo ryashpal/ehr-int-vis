@@ -4,9 +4,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import IntegratedExample from './components/IntegratedExample.jsx';
 import PatientRiskScores from './components/PatientRiskScores.jsx'
 import AMRRiskScores from './components/AMRRiskScores.jsx'
-import AMRRiskScoresV2 from './components/AMRRiskScoresV2.jsx'
 import AMRDates from './components/AMRDates.jsx'
-import Integrated2 from './components/Integrated2.jsx';
 
 import 'higlass/dist/hglib.css';
 
@@ -14,11 +12,9 @@ import 'higlass/dist/hglib.css';
 // The full list of explorations
 const explorations = {
 	'ARS': <AMRRiskScores/>,
-	'ARSV2': <AMRRiskScoresV2/>,
 	'AD': <AMRDates/>,
 	'PRS': <PatientRiskScores/>,
 	'Integrated': <IntegratedExample/>,
-	'Integrated2': <Integrated2/>,
 }
 
 
