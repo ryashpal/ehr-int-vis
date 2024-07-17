@@ -1,0 +1,13 @@
+idx,length,depth,circular
+2,229213,1.06x,false
+5,197877,1.07x,false
+6,191128,1.03x,false
+7,182892,1.00x,false
+9,170915,1.02x,false
+10,163551,1.04x,false
+13,108148,1.01x,false
+16,62583,1.06x,false
+17,62313,1.00x,false
+18,38700,1.01x,false
+19,29850,1.03x,false
+20,19758,4.85x,true
