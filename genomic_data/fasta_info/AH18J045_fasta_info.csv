@@ -10,6 +10,6 @@ idx,length,depth,circular
 13,68486,1.13x,false
 14,61472,1.06x,false
 15,54505,1.13x,false
-19,38856,1.03x,false
+19,38856,1.03x,true
 21,38316,1.00x,false
 24,22696,1.02x,false
