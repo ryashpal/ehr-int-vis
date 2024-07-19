@@ -64,6 +64,48 @@ function GenomicSummary() {
         }
     });
 
+    const [tokenCountData, setTokenCountData] = useState({
+        'data': [{
+            type: 'bar',
+            x: [],
+            y: [],
+            orientation: 'h'
+        }],
+        'layout': {
+            title: { text: 'Contig Token Count Plot' },
+            yaxis: { showticklabels: true, type: 'category', title: 'Contig Idx' },
+            xaxis: { title: 'Token Count' }
+        }
+    });
+
+    const [tokenLengthCountData, setTokenLengthCountData] = useState({
+        'data': [{
+            type: 'bar',
+            x: [],
+            y: [],
+            orientation: 'h'
+        }],
+        'layout': {
+            title: { text: 'Token Length Count Plot' },
+            yaxis: { showticklabels: true, type: 'category', title: 'Token Length' },
+            xaxis: { title: 'Count' }
+        }
+    });
+
+    const [topTokenCountData, setTopTokenCountData] = useState({
+        'data': [{
+            type: 'bar',
+            x: [],
+            y: [],
+            orientation: 'h'
+        }],
+        'layout': {
+            title: { text: 'Top 10 Token Count Plot' },
+            yaxis: { showticklabels: true, type: 'category', title: 'Token' },
+            xaxis: { title: 'Count' }
+        }
+    });
+
     function refreshData() {
         readData('http://10.172.235.4:8080/fhir/MolecularSequence?subject=P2115118').then(response => {
             let amrFile = null
@@ -92,7 +134,6 @@ function GenomicSummary() {
                     })
                 } else if (entry.title == 'Fasta info file') {
                     DataFrame.fromCSV(entry.url).then(df => {
-                        // console.info('depth values ', df.toArray('depth').map((x) => x.slice(0, -1)))
                         setFastaSummaryData(oldData => {
                             var data = [
                                 {
@@ -166,6 +207,89 @@ function GenomicSummary() {
                             return ({ 'data': data, 'layout': layout })
                         })
                     })
+                } else if (entry.title == 'Remap info file') {
+                    DataFrame.fromCSV(entry.url).then(df => {
+                        var groupedDf = df.groupBy('idx').aggregate((group) => group.count())
+                        let tokenLengthCounts = {}
+                        df.toArray('token').map(token => { return (token.length) }).forEach(value => {
+                            if (tokenLengthCounts[value]) {
+                                tokenLengthCounts[value] += 1;
+                            } else {
+                                tokenLengthCounts[value] = 1;
+                            }
+                        })
+                        let tokenCounts = {}
+                        df.toArray('token').forEach(value => {
+                            if (tokenCounts[value]) {
+                                tokenCounts[value] += 1;
+                            } else {
+                                tokenCounts[value] = 1;
+                            }
+                        })
+                        const topTokensDict = Object.fromEntries(
+                            Object.entries(tokenCounts).sort(([, a], [, b]) => b - a).slice(0, 10)
+                        );
+                        setTokenCountData(oldData => {
+                            var data = [
+                                {
+                                    type: 'bar',
+                                    x: groupedDf.toArray('aggregation'),
+                                    y: groupedDf.toArray('idx'),
+                                    text: groupedDf.toArray('aggregation'),
+                                    orientation: 'h',
+                                    marker: {
+                                        color: '#cdb4db',
+                                    },
+                                },
+                            ];
+                            var layout = {
+                                title: { text: 'Contig Token Count Plot' },
+                                yaxis: { showticklabels: true, type: 'category', title: 'Contig Idx', "categoryorder": "array", "categoryarray": groupedDf.toArray('idx') },
+                                xaxis: { title: 'Token Count' }
+                            }
+                            return ({ 'data': data, 'layout': layout })
+                        })
+                        setTokenLengthCountData(oldData => {
+                            var data = [
+                                {
+                                    type: 'bar',
+                                    x: Object.entries(tokenLengthCounts).map(([key, value]) => (value)),
+                                    y: Object.entries(tokenLengthCounts).map(([key, value]) => (key)),
+                                    text: Object.entries(tokenLengthCounts).map(([key, value]) => (value)),
+                                    orientation: 'h',
+                                    marker: {
+                                        color: '#a2d2ff',
+                                    },
+                                },
+                            ];
+                            var layout = {
+                                title: { text: 'Token Length Count Plot' },
+                                yaxis: { showticklabels: true, type: 'category', title: 'Token Length' },
+                                xaxis: { title: 'Count' }
+                            }
+                            return ({ 'data': data, 'layout': layout })
+                        })
+                        setTopTokenCountData(oldData => {
+                            var data = [
+                                {
+                                    type: 'bar',
+                                    x: Object.entries(topTokensDict).map(([key, value]) => (value)),
+                                    y: Object.entries(topTokensDict).map(([key, value]) => (key)),
+                                    text: Object.entries(topTokensDict).map(([key, value]) => (value)),
+                                    orientation: 'h',
+                                    marker: {
+                                        color: '#cdb4db',
+                                    },
+                                },
+                            ];
+                            var layout = {
+                                title: { text: 'Top 10 Token Count Plot' },
+                                yaxis: { showticklabels: true, type: 'category', title: 'Token' },
+                                xaxis: { title: 'Count' }
+                            }
+                            return ({ 'data': data, 'layout': layout })
+                        })
+                    })
                 }
             }
 
@@ -202,6 +326,22 @@ function GenomicSummary() {
             <Plot
                 data={fastaCoverageData.data}
                 layout={fastaCoverageData.layout}
+            >
+            </Plot>
+            <h2 className="text-3xl font-extrabold dark:text-white flex items-center justify-center">Remap Info</h2>
+            <Plot
+                data={tokenCountData.data}
+                layout={tokenCountData.layout}
+            >
+            </Plot>
+            <Plot
+                data={tokenLengthCountData.data}
+                layout={tokenLengthCountData.layout}
+            >
+            </Plot>
+            <Plot
+                data={topTokenCountData.data}
+                layout={topTokenCountData.layout}
             >
             </Plot>
         </div>
