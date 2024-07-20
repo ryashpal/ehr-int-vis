@@ -10,16 +10,28 @@ import readData from '../utils/FHIRUtils.js'
 function GenomicSummary() {
 
     const [geneData, setGeneData] = useState([{
-        type: 'bar',
-        x: [],
-        y: [],
-        orientation: 'h'
+        'data': [{
+            type: 'bar',
+            x: [],
+            y: [],
+            orientation: 'h'
+        }],
+        'layout': {
+            title: { text: 'Genes Count' },
+            yaxis: { showticklabels: true, type: 'category', title: 'Gene Symbol' },
+            xaxis: { title: 'Count' }
+        }
     }]);
 
     const [amrClassData, setAmrClassData] = useState([{
-        type: 'pie',
-        values: [],
-        labels: [],
+        'data': [{
+            type: 'pie',
+            values: [],
+            labels: [],
+        }],
+        'layout': {
+            title: { text: 'AMR Mechanisms' },
+        }
     }]);
 
     const [fastaSummaryData, setFastaSummaryData] = useState({
@@ -119,17 +131,42 @@ function GenomicSummary() {
                                 type: 'bar',
                                 x: geneGroupedDf.select('count').toArray().flat(),
                                 y: geneGroupedDf.select('type').toArray().flat(),
-                                orientation: 'h'
+                                orientation: 'h',
+                                marker: {
+                                    color: '#cdb4db',
+                                },
                             }];
-                            return (data)
+                            var layout = {
+                                title: { text: 'Genes Count' },
+                                yaxis: { showticklabels: true, type: 'category', title: 'Gene Symbol', "categoryorder": "array", "categoryarray": geneGroupedDf.select('type').toArray().flat() },
+                                xaxis: { title: 'Count' }
+                            }
+                            return ({ 'data': data, 'layout': layout })
                         })
                         setAmrClassData(oldData => {
                             var data = [{
                                 type: 'pie',
                                 values: amrClassGroupedDf.select('count').toArray().flat(),
                                 labels: amrClassGroupedDf.select('type').toArray().flat(),
-                            }];
-                            return (data)
+                                marker: {
+                                    colors: [
+                                      '#FDE4CF',
+                                      '#FFCFD2',
+                                      '#F1C0E8',
+                                      '#CFBAF0',
+                                      '#A3C4F3',
+                                      '#90DBF4',
+                                      '#8EECF5',
+                                      '#98F5E1',
+                                      '#B9FBC0',
+                                      '#FBF8CC',
+                                    ]
+                                  },
+                                                          }];
+                            var layout = {
+                                title: { text: 'AMR Mechanisms' },
+                            }
+                            return ({ 'data': data, 'layout': layout })
                         })
                     })
                 } else if (entry.title == 'Fasta info file') {
@@ -304,14 +341,16 @@ function GenomicSummary() {
         <div className='flex flex-col h-full w-full'>
             <br />
             <h2 className="text-4xl font-extrabold dark:text-white flex items-center justify-center">Genomic  Data Summary</h2>
-            <h2 className="text-3xl font-extrabold dark:text-white flex items-center justify-center">Genes</h2>
             <Plot
-                data={geneData}
-                layout={{ xaxis: { title: 'Count' }, yaxis: { title: 'Gene Name' } }}
+                data={geneData.data}
+                layout={geneData.layout}
             >
             </Plot>
-            <h2 className="text-3xl font-extrabold dark:text-white flex items-center justify-center">AMR Mechanisms</h2>
-            <Plot data={amrClassData}></Plot>
+            <Plot
+                data={amrClassData.data}
+                layout={amrClassData.layout}
+            >
+            </Plot>
             <h2 className="text-3xl font-extrabold dark:text-white flex items-center justify-center">FASTA Info</h2>
             <Plot
                 data={fastaSummaryData.data}
