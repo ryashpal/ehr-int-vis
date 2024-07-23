@@ -7,7 +7,7 @@ import Plot from 'react-plotly.js';
 import readData from '../utils/FHIRUtils.js'
 
 
-function GenomicSummary() {
+function GenomicSummary(params) {
 
     const [geneData, setGeneData] = useState([{
         'data': [{
@@ -119,7 +119,7 @@ function GenomicSummary() {
     });
 
     function refreshData() {
-        readData('http://10.172.235.4:8080/fhir/MolecularSequence?subject=P2115118').then(response => {
+        readData('http://10.172.235.4:8080/fhir/MolecularSequence?subject=' + params.patientId).then(response => {
             let amrFile = null
             for (let entry of response[0].entry[0].resource.formatted) {
                 if (entry.title == 'AMR File') {

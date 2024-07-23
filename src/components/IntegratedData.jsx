@@ -4,7 +4,7 @@ import { GoslingComponent } from 'gosling.js';
 import EHR from './EHR.jsx'
 
 
-function IntegratedExample() {
+function IntegratedData() {
 	return (
 		<>
 		<div className='flex flex-row h-full w-full'>
@@ -14,7 +14,7 @@ function IntegratedExample() {
 			</div>
 			<div className=''>
 			<h2 className="text-4xl font-extrabold dark:text-white flex items-center justify-center">Genome</h2>
-			<h2 class="text-2xl font-bold tracking-tight sm:text-2xl flex items-center justify-center">Contig 1</h2>
+			<h2 className="text-2xl font-bold tracking-tight sm:text-2xl flex items-center justify-center">Contig 1</h2>
 			<GoslingComponent
 				spec={
 					{
@@ -60,7 +60,7 @@ function IntegratedExample() {
 				}
 				experimental={{ reactive: true }}
 			/>
-			<h2 class="text-2xl font-bold tracking-tight sm:text-2xl flex items-center justify-center">Contig 2</h2>
+			<h2 className="text-2xl font-bold tracking-tight sm:text-2xl flex items-center justify-center">Contig 2</h2>
 			<GoslingComponent
 				spec={
 					{
@@ -89,7 +89,7 @@ function IntegratedExample() {
 				}
 				experimental={{ reactive: true }}
 			/>
-			<h2 class="text-2xl font-bold tracking-tight sm:text-2xl flex items-center justify-center">Contig 5</h2>
+			<h2 className="text-2xl font-bold tracking-tight sm:text-2xl flex items-center justify-center">Contig 5</h2>
 			<GoslingComponent
 				spec={
 					{
@@ -135,7 +135,7 @@ function IntegratedExample() {
 				}
 				experimental={{ reactive: true }}
 			/>
-			{/* <h2 class="text-2xl font-bold tracking-tight sm:text-2xl flex items-center justify-center">Contig 6</h2>
+			{/* <h2 className="text-2xl font-bold tracking-tight sm:text-2xl flex items-center justify-center">Contig 6</h2>
 			<GoslingComponent
 				spec={
 					{
@@ -164,7 +164,7 @@ function IntegratedExample() {
 				}
 				experimental={{ reactive: true }}
 			/>
-			<h2 class="text-2xl font-bold tracking-tight sm:text-2xl flex items-center justify-center">Contig 8</h2>
+			<h2 className="text-2xl font-bold tracking-tight sm:text-2xl flex items-center justify-center">Contig 8</h2>
 			<GoslingComponent
 				spec={
 					{
@@ -193,7 +193,7 @@ function IntegratedExample() {
 				}
 				experimental={{ reactive: true }}
 			/>
-			<h2 class="text-2xl font-bold tracking-tight sm:text-2xl flex items-center justify-center">Contig 9</h2>
+			<h2 className="text-2xl font-bold tracking-tight sm:text-2xl flex items-center justify-center">Contig 9</h2>
 			<GoslingComponent
 				spec={
 					{
@@ -222,7 +222,7 @@ function IntegratedExample() {
 				}
 				experimental={{ reactive: true }}
 			/>
-			<h2 class="text-2xl font-bold tracking-tight sm:text-2xl flex items-center justify-center">Contig 11</h2>
+			<h2 className="text-2xl font-bold tracking-tight sm:text-2xl flex items-center justify-center">Contig 11</h2>
 			<GoslingComponent
 				spec={
 					{
@@ -251,7 +251,7 @@ function IntegratedExample() {
 				}
 				experimental={{ reactive: true }}
 			/>
-			<h2 class="text-2xl font-bold tracking-tight sm:text-2xl flex items-center justify-center">Contig 12</h2>
+			<h2 className="text-2xl font-bold tracking-tight sm:text-2xl flex items-center justify-center">Contig 12</h2>
 			<GoslingComponent
 				spec={
 					{
@@ -280,7 +280,7 @@ function IntegratedExample() {
 				}
 				experimental={{ reactive: true }}
 			/> */}
-			<h2 class="text-2xl font-bold tracking-tight sm:text-2xl flex items-center justify-center">Contig 15</h2>
+			<h2 className="text-2xl font-bold tracking-tight sm:text-2xl flex items-center justify-center">Contig 15</h2>
 			<GoslingComponent
 				spec={
 					{
@@ -332,4 +332,4 @@ function IntegratedExample() {
 	);
 }
 
-export default IntegratedExample;
+export default IntegratedData;

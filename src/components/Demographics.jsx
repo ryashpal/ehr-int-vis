@@ -3,12 +3,12 @@ import React, { useState, useEffect } from 'react';
 import readData from '../utils/FHIRUtils.js'
 
 
-function Demographics() {
+function Demographics(params) {
 
     const [data, setData] = useState(null);
 
     function refreshData() {
-        readData('http://10.172.235.4:8080/fhir/Patient?_id=P2115118').then(response => {
+        readData('http://10.172.235.4:8080/fhir/Patient?_id=' + params.patientId).then(response => {
             setData(response);
         })
     }

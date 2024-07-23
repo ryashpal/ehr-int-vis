@@ -117,19 +117,27 @@ function AMRRiskScores() {
 
   return (
     <>
-      <Box m={2} p={2} sx={{ width: 800 }}>
-        <span>Date Range</span>
-        <DateRangePicker
-          onChange={handleDateChange}
-          showSelectionPreview={true}
-          moveRangeOnFirstSelection={false}
-          months={3}
-          ranges={dates}
-          direction="horizontal"
-        />;
-      </Box>
-      <Plot data={geneData}></Plot>
-      <Plot data={amrClassData}></Plot>
+      <div className="flex-col items-center grid-cols-1">
+        <div className="flex items-center">
+          <Box m={2} p={2} sx={{ width: 800 }}>
+            <span>Admission Dates</span>
+            <DateRangePicker
+              onChange={handleDateChange}
+              showSelectionPreview={true}
+              moveRangeOnFirstSelection={false}
+              months={3}
+              ranges={dates}
+              direction="horizontal"
+            />;
+          </Box>
+        </div>
+        <div className="flex items-center">
+          <Plot data={geneData}></Plot>
+        </div>
+        <div className="flex items-center">
+          <Plot data={amrClassData}></Plot>
+        </div>
+      </div>
     </>
   );
 }
