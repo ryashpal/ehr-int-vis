@@ -7,6 +7,9 @@ import AMRRiskScores from './components/AMRRiskScores.jsx'
 import AMRDates from './components/AMRDates.jsx'
 import IntegratedSummary from './components/IntegratedSummary.jsx';
 import Search from './components/Search.jsx';
+import AMRSummary from './components/AMRSummary.jsx';
+import FASTASummary from './components/FASTASummary.jsx';
+import RemapSummary from './components/RemapSummary.jsx';
 
 import 'higlass/dist/hglib.css';
 
@@ -19,6 +22,9 @@ const explorations = {
 	'PRS': <PatientRiskScores/>,
 	'IntegratedData/:id': <IntegratedData/>,
 	'IntegratedSummary/:id': <IntegratedSummary/>,
+	'AMRSummary/': <AMRSummary/>,
+	'FASTASummary/': <FASTASummary/>,
+	'RemapSummary/': <RemapSummary/>,
 }
 
 

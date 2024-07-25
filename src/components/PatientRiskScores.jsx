@@ -1,4 +1,4 @@
-import readData from '../utils/FHIRUtils.js'
+import readData from '../services/FHIRUtils.js'
 import React, { useState, useEffect } from 'react';
 
 import Table from '@mui/material/Table';
@@ -83,7 +83,7 @@ function PatientRiskScores() {
               <TableBody>
                 {data.map((row) => (
                   <TableRow
-                    key={row.name}
+                    key={row.id}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
                     <TableCell component="th" scope="row">

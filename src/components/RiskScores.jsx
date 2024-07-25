@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 
 import Plot from 'react-plotly.js';
 
-import readData from '../utils/FHIRUtils.js'
+import readData from '../services/FHIRUtils.js'
 
 
 function RiskScore() {

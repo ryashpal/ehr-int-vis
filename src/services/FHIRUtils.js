@@ -1,11 +1,11 @@
 
 
-async function readData(url) {
+async function readData(url, method='GET', body=null) {
     var nextUrl = url
     var data = []
     while(nextUrl){
         console.log('Reading URL: ', nextUrl);
-        let result = await makeRequest("GET", nextUrl);
+        let result = await makeRequest(nextUrl, method, body);
         result = JSON.parse(result)
         data.push(result)
         nextUrl = null
@@ -19,11 +19,12 @@ async function readData(url) {
 }
 
 
-function makeRequest(method, url) {
+function makeRequest(url, method='GET', body=null) {
     return new Promise(function (resolve, reject) {
         let xhr = new XMLHttpRequest();
         xhr.open(method, url);
         xhr.setRequestHeader("authentication", "mjRmoNGW6klxaClkKhEkqi7HVYwx6NTH");
+        xhr.setRequestHeader("Content-Type", "application/json");
         xhr.onload = function () {
             if (this.status >= 200 && this.status < 300) {
                 resolve(xhr.response);
@@ -40,7 +41,7 @@ function makeRequest(method, url) {
                 statusText: xhr.statusText
             });
         };
-        xhr.send();
+        xhr.send(body);
     });
 }
 

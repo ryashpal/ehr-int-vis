@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import readData from '../utils/FHIRUtils.js'
+import readData from '../services/FHIRUtils.js'
 
 
 function Demographics(params) {

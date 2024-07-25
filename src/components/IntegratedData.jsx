@@ -1,16 +1,21 @@
 import React from 'react';
 import { GoslingComponent } from 'gosling.js';
 
+import { useParams } from 'react-router-dom';
+
 import EHR from './EHR.jsx'
 
 
 function IntegratedData() {
+
+	const { id } = useParams();
+
 	return (
 		<>
 		<div className='flex flex-row h-full w-full'>
 			<div className='p-3'>
 				<h2 className="text-4xl font-extrabold dark:text-white flex items-center justify-center">EHR</h2>
-				<EHR/>
+				<EHR patientId={id}/>
 			</div>
 			<div className=''>
 			<h2 className="text-4xl font-extrabold dark:text-white flex items-center justify-center">Genome</h2>

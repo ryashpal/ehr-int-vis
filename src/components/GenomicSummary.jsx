@@ -4,7 +4,7 @@ import DataFrame from 'dataframe-js';
 
 import Plot from 'react-plotly.js';
 
-import readData from '../utils/FHIRUtils.js'
+import readData from '../services/FHIRUtils.js'
 
 
 function GenomicSummary(params) {
@@ -150,19 +150,19 @@ function GenomicSummary(params) {
                                 labels: amrClassGroupedDf.select('type').toArray().flat(),
                                 marker: {
                                     colors: [
-                                      '#FDE4CF',
-                                      '#FFCFD2',
-                                      '#F1C0E8',
-                                      '#CFBAF0',
-                                      '#A3C4F3',
-                                      '#90DBF4',
-                                      '#8EECF5',
-                                      '#98F5E1',
-                                      '#B9FBC0',
-                                      '#FBF8CC',
+                                        '#FDE4CF',
+                                        '#FFCFD2',
+                                        '#F1C0E8',
+                                        '#CFBAF0',
+                                        '#A3C4F3',
+                                        '#90DBF4',
+                                        '#8EECF5',
+                                        '#98F5E1',
+                                        '#B9FBC0',
+                                        '#FBF8CC',
                                     ]
-                                  },
-                                                          }];
+                                },
+                            }];
                             var layout = {
                                 title: { text: 'AMR Mechanisms' },
                             }
