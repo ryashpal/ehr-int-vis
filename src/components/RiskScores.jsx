@@ -7,10 +7,10 @@ import Plot from 'react-plotly.js';
 import readData from '../services/FHIRUtils.js'
 
 
-function RiskScore() {
+function RiskScore(params) {
 
     function refreshData() {
-        readData('http://10.172.235.4:8080/fhir/RiskAssessment?subject=P2115118').then(response => {
+        readData('http://10.172.235.4:8080/fhir/RiskAssessment?subject=' + params.patientId).then(response => {
             response.map(resourceBundle => {
                 if (resourceBundle.entry) {
                     resourceBundle.entry.map(entry => {

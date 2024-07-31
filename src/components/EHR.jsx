@@ -30,10 +30,10 @@ function EHR(params) {
                 <p className='text-2xl font-normal'>{data[0].entry[0].resource.gender}</p>
                 <br/>
                 <p className='font-black'>Vitals</p>
-                <Graph/>
+                <Graph patientId={params.patientId}/>
                 <p className='font-black'>Lab Values</p>
-                <Graph/>
-                <RiskScores/>
+                <Graph patientId={params.patientId}/>
+                <RiskScores patientId={params.patientId}/>
             </div>
         )
     }

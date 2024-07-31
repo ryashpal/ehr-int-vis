@@ -21,9 +21,11 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 import readData from '../services/FHIRUtils.js'
+import exportEHR from '../services/ExportEHR.jsx';
+import exportGenomics from '../services/ExportGenomics.jsx';
 
 
-function Demographics() {
+function Search() {
 
     const [name, setName] = useState("");
     const [score, setScore] = useState([0.95, 1.00]);
@@ -100,6 +102,19 @@ function Demographics() {
         setAnchorExportEl(null);
     };
 
+    const handleExportEHR = () => {
+        exportEHR(name, score[0], score[1], ((fromDate == null) ? '' : fromDate.format('YYYY-MM-DD')), ((toDate == null) ? '' : toDate.format('YYYY-MM-DD')))
+    }
+
+    const handleExportGenomics = () => {
+        exportGenomics(name, score[0], score[1], ((fromDate == null) ? '' : fromDate.format('YYYY-MM-DD')), ((toDate == null) ? '' : toDate.format('YYYY-MM-DD')))
+    }
+
+    const handleExportEHRGenomics = () => {
+        exportEHR(name, score[0], score[1], ((fromDate == null) ? '' : fromDate.format('YYYY-MM-DD')), ((toDate == null) ? '' : toDate.format('YYYY-MM-DD')))
+        exportGenomics(name, score[0], score[1], ((fromDate == null) ? '' : fromDate.format('YYYY-MM-DD')), ((toDate == null) ? '' : toDate.format('YYYY-MM-DD')))
+    }
+
     return (
         <div className='h-full w-full justify-center items-center'>
             <form className="mt-4 mx-auto w-full py-2 px-2 rounded-lg bg-gray-50 border flex focus-within:border-gray-300" onSubmit={handleSubmit}>
@@ -142,8 +157,8 @@ function Demographics() {
                     <div className="grid gap-2 mt-2 mb-2 grid-cols-6">
                         <div className="flex items-center col-span-4">
                             <Box m={2} p={2} sx={{ width: 1200 }}>
-                            <span>Risk Score Range</span>
-                            <Slider
+                                <span>Risk Score Range</span>
+                                <Slider
                                     getAriaLabel={() => 'Risk Score Range'}
                                     value={score}
                                     onChange={handleScoreChange}
@@ -208,9 +223,9 @@ function Demographics() {
                                     'aria-labelledby': 'export-button',
                                 }}
                             >
-                                <MenuItem component='a' href={'#/AMRSummary?name=' + name + '&lowerRiskScore=' + score[0] + '&higherRiskScore=' + score[1] + '&fromDate=' + ((fromDate == null) ? '' : fromDate.format('YYYY-MM-DD')) + '&toDate=' + ((toDate == null) ? '' : toDate.format('YYYY-MM-DD'))}>EHR</MenuItem>
-                                <MenuItem component='a' href={'#/FASTASummary?name=' + name + '&lowerRiskScore=' + score[0] + '&higherRiskScore=' + score[1] + '&fromDate=' + ((fromDate == null) ? '' : fromDate.format('YYYY-MM-DD')) + '&toDate=' + ((toDate == null) ? '' : toDate.format('YYYY-MM-DD'))}>Genomics</MenuItem>
-                                <MenuItem component='a' href={'#/RemapSummary?name=' + name + '&lowerRiskScore=' + score[0] + '&higherRiskScore=' + score[1] + '&fromDate=' + ((fromDate == null) ? '' : fromDate.format('YYYY-MM-DD')) + '&toDate=' + ((toDate == null) ? '' : toDate.format('YYYY-MM-DD'))}>EHR + Genomics</MenuItem>
+                                <MenuItem onClick={handleExportEHR}>EHR</MenuItem>
+                                <MenuItem onClick={handleExportGenomics}>Genomics</MenuItem>
+                                <MenuItem onClick={handleExportEHRGenomics}>EHR + Genomics</MenuItem>
                             </Menu>
                         </div>
                     </div>
@@ -252,4 +267,4 @@ function Demographics() {
     )
 }
 
-export default Demographics;
+export default Search;
