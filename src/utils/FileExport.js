@@ -19,6 +19,7 @@ const downloadCSV = (fileName, data) => {
     link.href = csvURL;
     link.download = fileName + `.csv`;
     document.body.appendChild(link);
+    console.log('link: ', link)
     link.click();
     document.body.removeChild(link);
 };

@@ -4,6 +4,7 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
+import TablePagination from '@mui/material/TablePagination';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
@@ -15,14 +16,18 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 import readData from '../services/FHIRUtils.js'
-import exportEHR from '../services/ExportEHR.jsx';
-import exportGenomics from '../services/ExportGenomics.jsx';
+import exportEHR from '../services/ExportEHR.js';
+import exportGenomics from '../services/ExportGenomics.js';
 
 
 function Search() {
@@ -31,11 +36,15 @@ function Search() {
     const [score, setScore] = useState([0.95, 1.00]);
     const [fromDate, setFromDate] = useState(null);
     const [toDate, setToDate] = useState(null);
+    const [cohort, setCohort] = useState('');
     const [rows, setRows] = useState([]);
     const [anchorPlotEl, setAnchorPlotEl] = useState(null);
     const [anchorExportEl, setAnchorExportEl] = useState(null);
     const openPlot = Boolean(anchorPlotEl);
     const openExport = Boolean(anchorExportEl);
+
+    const [page, setPage] = useState(0);
+    const [rowsPerPage, setRowsPerPage] = useState(5);
 
     function createData(name, gender, integratedSummary, integratedData) {
         return { name, gender, integratedSummary, integratedData };
@@ -48,6 +57,7 @@ function Search() {
             + '&_has:RiskAssessment:subject:probability=le' + score[1]
             + ((fromDate == null) ? '' : '&_has:Encounter:subject:date-start=ge' + fromDate.format('YYYY-MM-DD'))
             + ((toDate == null) ? '' : '&_has:Encounter:subject:date-start=le' + toDate.format('YYYY-MM-DD'))
+            // + '&_has:Observation:subject:value-concept=' + cohort
         ).then(response => {
             var searchResults = []
             response.map((data) => {
@@ -76,6 +86,10 @@ function Search() {
         setScore(newScore);
         // refreshData();
     };
+
+    const handleCohortChange = (event) => {
+        setCohort(event.target.value);
+    }
 
     useEffect(() => {
         refreshData()
@@ -115,15 +129,25 @@ function Search() {
         exportGenomics(name, score[0], score[1], ((fromDate == null) ? '' : fromDate.format('YYYY-MM-DD')), ((toDate == null) ? '' : toDate.format('YYYY-MM-DD')))
     }
 
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage);
+    };
+
+    const handleChangeRowsPerPage = (event) => {
+        setRowsPerPage(+event.target.value);
+        setPage(0);
+    };
+
+
     return (
         <div className='h-full w-full justify-center items-center'>
             <form className="mt-4 mx-auto w-full py-2 px-2 rounded-lg bg-gray-50 border flex focus-within:border-gray-300" onSubmit={handleSubmit}>
                 <div className='h-full w-full justify-center items-center'>
-                    <div className="grid gap-2 mt-2 mb-2 grid-cols-8">
+                    <div className="grid gap-2 mt-2 mb-2 grid-cols-6">
                         <div className="flex items-center justify-center">
                             <input type="text" placeholder="Patient ID" className="bg-transparent h-full w-full focus:outline-none pr-4 font-semibold border-2 focus:ring-0 px-0 py-0 rounded-lg" name="name" onInput={handleIdChange} />
                         </div>
-                        <div className="flex items-center justify-center col-span-3">
+                        <div className="flex items-center justify-center col-span-1">
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <DemoContainer components={['DatePicker', 'DatePicker']}>
                                     <DatePicker
@@ -134,7 +158,7 @@ function Search() {
                                 </DemoContainer>
                             </LocalizationProvider>
                         </div>
-                        <div className="flex items-center justify-center col-span-3">
+                        <div className="flex items-center justify-center col-span-1">
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <DemoContainer components={['DatePicker', 'DatePicker']}>
                                     <DatePicker
@@ -144,6 +168,22 @@ function Search() {
                                     />
                                 </DemoContainer>
                             </LocalizationProvider>
+                        </div>
+                        <div className="flex items-center justify-center col-span-2">
+                            <Box sx={{ minWidth: 300 }}>
+                                <FormControl fullWidth>
+                                    <InputLabel id="demo-simple-select-label">Select a Cohort</InputLabel>
+                                    <Select
+                                        labelId="demo-simple-select-label"
+                                        id="demo-simple-select"
+                                        value={cohort}
+                                        label="Select a Cohort"
+                                        onChange={handleCohortChange}
+                                    >
+                                        <MenuItem value={3092008}>Staphylococcus aureus</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </Box>
                         </div>
                         <div className="flex items-center justify-center">
                             <button
@@ -232,7 +272,7 @@ function Search() {
                 </div>
             </form>
             <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <Table sx={{ minWidth: 650 }} stickyHeader aria-label="sticky table">
                     <TableHead>
                         <TableRow>
                             <TableCell>Patient ID</TableCell>
@@ -241,28 +281,41 @@ function Search() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((row) => (
-                            <TableRow
-                                key={row.name}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                            >
-                                <TableCell component="th" scope="row">
-                                    {row.name}
-                                </TableCell>
-                                <TableCell align="left">{row.gender}</TableCell>
-                                <TableCell align="left">
-                                    <a href={row.integratedSummary} className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs m-2 px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                                        Data Summary
-                                    </a>
-                                    <a href={row.integratedData} className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs m-2 px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                                        Data Details
-                                    </a>
-                                </TableCell>
-                            </TableRow>
-                        ))}
+                        {rows
+                            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                            .map((row) => {
+                                return (
+                                    <TableRow
+                                        key={row.name}
+                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                    >
+                                        <TableCell component="th" scope="row">
+                                            {row.name}
+                                        </TableCell>
+                                        <TableCell align="left">{row.gender}</TableCell>
+                                        <TableCell align="left">
+                                            <a href={row.integratedSummary} className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs m-2 px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                                                Data Summary
+                                            </a>
+                                            <a href={row.integratedData} className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs m-2 px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                                                Data Details
+                                            </a>
+                                        </TableCell>
+                                    </TableRow>
+                                )
+                            })}
                     </TableBody>
                 </Table>
             </TableContainer>
+            <TablePagination
+                rowsPerPageOptions={[5, 10, 25, 100]}
+                component="div"
+                count={rows.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+            />
         </div>
     )
 }
