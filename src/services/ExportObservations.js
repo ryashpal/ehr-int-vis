@@ -2,7 +2,7 @@ import downloadCSV from '../utils/FileExport';
 import readData from './FHIRUtils';
 
 
-const exportEHR = (name, lowerRiskScore, higherRiskScore, fromDate, toDate) => {
+const exportObservations = (name, lowerRiskScore, higherRiskScore, fromDate, toDate) => {
 
     readData(
         'http://10.172.235.4:8080/fhir/Patient?name=' + name
@@ -25,16 +25,18 @@ const exportEHR = (name, lowerRiskScore, higherRiskScore, fromDate, toDate) => {
             for (let response of responses) {
                 if ('entry' in response) {
                     for (let entry of response.entry) {
-                        let row = [
-                            entry.resource.id.substring(1),
-                            entry.resource.subject.reference.substring(9),
-                            entry.resource.encounter.reference.substring(11),
-                            entry.resource.code.coding[0].code,
-                            entry.resource.code.coding[0].display,
-                            entry.resource.valueQuantity.value,
-                            entry.resource.effectiveDateTime.substring(0, 10)
-                        ];
-                        data.push(row)
+                        if ('encounter' in entry.resource) {
+                            let row = [
+                                entry.resource.id.substring(1),
+                                entry.resource.subject.reference.substring(9),
+                                entry.resource.encounter.reference.substring(11),
+                                entry.resource.code.coding[0].code,
+                                entry.resource.code.coding[0].display,
+                                entry.resource.valueQuantity.value,
+                                entry.resource.effectiveDateTime.substring(0, 10)
+                            ];
+                            data.push(row)
+                        }
                     }
                 }
             }
@@ -44,4 +46,4 @@ const exportEHR = (name, lowerRiskScore, higherRiskScore, fromDate, toDate) => {
 }
 
 
-export default exportEHR;
+export default exportObservations;

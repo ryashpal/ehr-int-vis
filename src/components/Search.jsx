@@ -26,7 +26,9 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 import readData from '../services/FHIRUtils.js'
-import exportEHR from '../services/ExportEHR.js';
+
+import exportDemographics from '../services/ExportDemographics.js';
+import exportObservations from '../services/ExportObservations.js';
 import exportGenomics from '../services/ExportGenomics.js';
 
 
@@ -116,16 +118,21 @@ function Search() {
         setAnchorExportEl(null);
     };
 
-    const handleExportEHR = () => {
-        exportEHR(name, score[0], score[1], ((fromDate == null) ? '' : fromDate.format('YYYY-MM-DD')), ((toDate == null) ? '' : toDate.format('YYYY-MM-DD')))
+    const handleExportObservations = () => {
+        exportObservations(name, score[0], score[1], ((fromDate == null) ? '' : fromDate.format('YYYY-MM-DD')), ((toDate == null) ? '' : toDate.format('YYYY-MM-DD')))
+    }
+
+    const handleExportDemographics = () => {
+        exportDemographics(name, score[0], score[1], ((fromDate == null) ? '' : fromDate.format('YYYY-MM-DD')), ((toDate == null) ? '' : toDate.format('YYYY-MM-DD')))
     }
 
     const handleExportGenomics = () => {
         exportGenomics(name, score[0], score[1], ((fromDate == null) ? '' : fromDate.format('YYYY-MM-DD')), ((toDate == null) ? '' : toDate.format('YYYY-MM-DD')))
     }
 
-    const handleExportEHRGenomics = () => {
-        exportEHR(name, score[0], score[1], ((fromDate == null) ? '' : fromDate.format('YYYY-MM-DD')), ((toDate == null) ? '' : toDate.format('YYYY-MM-DD')))
+    const handleExportAll = () => {
+        exportDemographics(name, score[0], score[1], ((fromDate == null) ? '' : fromDate.format('YYYY-MM-DD')), ((toDate == null) ? '' : toDate.format('YYYY-MM-DD')))
+        exportObservations(name, score[0], score[1], ((fromDate == null) ? '' : fromDate.format('YYYY-MM-DD')), ((toDate == null) ? '' : toDate.format('YYYY-MM-DD')))
         exportGenomics(name, score[0], score[1], ((fromDate == null) ? '' : fromDate.format('YYYY-MM-DD')), ((toDate == null) ? '' : toDate.format('YYYY-MM-DD')))
     }
 
@@ -263,9 +270,10 @@ function Search() {
                                     'aria-labelledby': 'export-button',
                                 }}
                             >
-                                <MenuItem onClick={handleExportEHR}>EHR</MenuItem>
+                                <MenuItem onClick={handleExportDemographics}>Demographics</MenuItem>
+                                <MenuItem onClick={handleExportObservations}>Observations</MenuItem>
                                 <MenuItem onClick={handleExportGenomics}>Genomics</MenuItem>
-                                <MenuItem onClick={handleExportEHRGenomics}>EHR + Genomics</MenuItem>
+                                <MenuItem onClick={handleExportAll}>All</MenuItem>
                             </Menu>
                         </div>
                     </div>

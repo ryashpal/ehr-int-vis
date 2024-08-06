@@ -10,7 +10,7 @@ import Search from './components/Search.jsx';
 import AMRSummary from './components/AMRSummary.jsx';
 import FASTASummary from './components/FASTASummary.jsx';
 import RemapSummary from './components/RemapSummary.jsx';
-// import Temp from './components/Temp.jsx'
+import Export from './components/Export.jsx'
 
 import 'higlass/dist/hglib.css';
 
@@ -26,7 +26,7 @@ const explorations = {
 	'AMRSummary/': <AMRSummary/>,
 	'FASTASummary/': <FASTASummary/>,
 	'RemapSummary/': <RemapSummary/>,
-	// 'Temp': <Temp/>,
+	'Export': <Export/>,
 }
 
 

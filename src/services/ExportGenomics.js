@@ -21,8 +21,7 @@ const exportGenomics = (name, lowerRiskScore, higherRiskScore, fromDate, toDate)
                 })
             }
         })
-        var data = [['patient_id', 'tube_id', 'idx', 'token_type_id', 'token']]
-        var dfs = null
+        var dfs = new DataFrame([['patient_id', 'tube_id', 'idx', 'token_type_id', 'token']], ['patient_id', 'tube_id', 'idx', 'token_type_id', 'token'])
         for (var patientId of patientIds) {
             let responses = await readData('http://10.172.235.4:8080/fhir/MolecularSequence?subject=' + patientId)
             for (let response of responses) {
@@ -34,18 +33,14 @@ const exportGenomics = (name, lowerRiskScore, higherRiskScore, fromDate, toDate)
                                 var df = await DataFrame.fromCSV(formatted.url)
                                 df = df.withColumn('tube_id', () => entry.resource.id)
                                 df = df.withColumn('patient_id', () => patientId)
-                                if (dfs == null) {
-                                    dfs = df.select('patient_id', 'tube_id', 'idx', 'token_type_id', 'token')
-                                } else {
-                                    dfs = dfs.union(df.select('patient_id', 'tube_id', 'idx', 'token_type_id', 'token'))
-                                }
+                                dfs = dfs.union(df.select('patient_id', 'tube_id', 'idx', 'token_type_id', 'token'))
                             }
                         }
                     }
                 }
             }
         }
-        downloadCSV('tokens_' + name + '_' + lowerRiskScore + '_' + higherRiskScore + '_' + fromDate + '_' + toDate, data.concat(dfs.toArray()))
+        downloadCSV('tokens_' + name + '_' + lowerRiskScore + '_' + higherRiskScore + '_' + fromDate + '_' + toDate, dfs.toArray())
     })
 }
 

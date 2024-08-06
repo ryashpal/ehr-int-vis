@@ -59,12 +59,14 @@ function Graph(params) {
       for (let response of responses) {
         if ('entry' in response) {
           for (let entry of response.entry) {
-            let obj = {
-              region: entry.resource.code.text,
-              date: entry.resource.effectiveDateTime,
-              value: entry.resource.valueQuantity.value,
-            };
-            result.push(obj);
+            if ('encounter' in entry.resource) {
+              let obj = {
+                region: entry.resource.code.text,
+                date: entry.resource.effectiveDateTime,
+                value: entry.resource.valueQuantity.value,
+              };
+              result.push(obj);
+            }
           }
         }
       }
